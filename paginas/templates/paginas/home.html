@@ -1,0 +1,45 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>Django-Igreja: Comunidade Cristã</title>
+{% endblock %}
+
+
+{% block destaque %}
+
+<div class="table-responsive mt-3">
+    <div class="container">
+        <h3 class="mb-3" style="text-align: center;">Os 10 Mandamentos</h3><hr>
+        <table class="table table-striped border border-dander ">
+            <tr>
+                <th style="text-align: center;">1</th>
+                <th style="text-align: center;">2</th>
+                <th style="text-align: center;">3</th>
+                <th style="text-align: center;">4</th>
+                <th style="text-align: center;">5</th>
+                <th style="text-align: center;">6</th>
+                <th style="text-align: center;">7</th>
+                <th style="text-align: center;">8</th>
+                <th style="text-align: center;">9</th>
+                <th style="text-align: center;">10</th>
+            </tr>
+            <tr>
+                <td class='border border-dark'>Não matar</td>
+                <td class='border border-dark'>Não Roubar</td> 
+                <td class='border border-dark'>Não Mentir</td>
+                <td class='border border-dark'>Não usar o nome de Deus em Vão</td>
+                <td class='border border-dark'>Guardar os Domingos</td>
+                <td class='border border-dark'>Honrar pai e mãe</td>
+                <td class='border border-dark'>Adorar a Deus</td>
+                <td class='border border-dark'>Guardar castidade</td>
+                <td class='border border-dark'>Não desejar a mulher do próximo</td>
+                <td class='border border-dark'>Não cobiçar as coisas alheias</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

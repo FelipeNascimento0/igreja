@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    {% block title %}
+    <title>base django</title>
+    {% endblock %}
+</head>
+<body>
+    <div>
+        <img src="{% static 'img/igreja-header.png' %}" alt="igrejinha" style=" display:block;  margin: auto; ">
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'lista-igreja' %}">Igrejas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'lista-culto' %}">Cultos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Quem Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trabalhe Conosco</a>
+          </li>
+          
+          {% endif %}
+        {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fa fa-user-circle" aria-hidden="true"><span id="username">
+                {{request.user}}
+               </span></i>
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="fa fa-user" arial-hidden="true"> Meus Dados</i></a>
+              <a class="dropdown-item" href="#"><i class="fa fa-lock" aria-hidden="true"> Alterar Senha</i></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"> Sair</i></a>
+          {% else %}
+          <li class="nav-item ml-auto">
+            <a class="nav-link" href="#"><i class="fa fa-sign-in" aria-hidden="true">  Login</i></a>
+          </li>
+          {% endif %}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="container">
+{% block destaque %}
+<p>destaque</p>
+{% endblock %}
+
+{% block conteudo  %}
+<p>conteudo</p>
+{% endblock %}
+</div>
+
+
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    
+</body>
+</html>
