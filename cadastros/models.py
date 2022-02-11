@@ -29,5 +29,8 @@ class Culto(models.Model):
     
 
     def __str__(self):
-        return "{}-({})".format(self.nome_do_culto, self.igreja.nome)
+        return "{}-({})_______{}".format(self.nome_do_culto, self.igreja.nome, self.data)
+
+    class Meta:
+        ordering = ["data"] 
 

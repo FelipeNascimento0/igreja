@@ -12,10 +12,11 @@
     {% endblock %}
 </head>
 <body>
-    <div>
+    <div style="background-color: #3E5151;">
+        
         <img src="{% static 'img/igreja-header.png' %}" alt="igrejinha" style=" display:block;  margin: auto; ">
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #632b1a;">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +35,7 @@
             <a class="nav-link" href="{% url 'lista-culto' %}">Cultos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Quem Somos</a>
+            <a class="nav-link" href="{% url 'quem_somos' %}">Quem Somos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Trabalhe Conosco</a>
@@ -53,10 +54,10 @@
               <a class="dropdown-item" href="#"><i class="fa fa-user" arial-hidden="true"> Meus Dados</i></a>
               <a class="dropdown-item" href="#"><i class="fa fa-lock" aria-hidden="true"> Alterar Senha</i></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"> Sair</i></a>
+              <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"> Sair</i></a>
           {% else %}
           <li class="nav-item ml-auto">
-            <a class="nav-link" href="#"><i class="fa fa-sign-in" aria-hidden="true">  Login</i></a>
+            <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true">  Login</i></a>
           </li>
           {% endif %}
             </div>
@@ -67,16 +68,49 @@
   </nav>
 
 
-<div class="container">
+
 {% block destaque %}
 <p>destaque</p>
 {% endblock %}
+
+<div class="container">
 
 {% block conteudo  %}
 <p>conteudo</p>
 {% endblock %}
 </div>
 
+{% block rodape %}
+{% endblock %}
+
+<footer class=" text-light mt-5" style="background-color: #632b1a;">
+  <div class="container-fluid py-3">
+  <div class="row">
+    <div class="col-4">
+      <ul class="nav flex-column">
+        <li class="nav-link "><a href="#" class="text-light">Return Home</a></li>
+        <li class="nav-link "><a href="#" class="text-light">Igrejas</a></li>
+        <li class="nav-link "><a href="#" class="text-light">Cultos</a></li>
+        <li class="nav-link "><a href="#" class="text-light">Suporte</a></li>
+      </ul>
+    </div>
+    <div class="col-8">
+      <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sed necessitatibus id asperiores iste fugiat,             praesentium obcaecati explicabo consequatur voluptatem eos earum blanditiis dolorem eaque veritatis libero?               Magni, nam fugiat.
+      </p>
+      <ul class="nav">
+        <li class="nav-link" ><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></li>
+        <li class="nav-link"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></li>
+        <li class="nav-link"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></li>
+        <li class="nav-link"><i class="fa fa-whatsapp fa-3x" aria-hidden="true"></i></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="text-center" style="background-color: #333; padding: 20px;" >
+    &copy 2018 Copyright: <a href="#">Lojas Virtuais</a>
+  </div>
+</footer>
 
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
