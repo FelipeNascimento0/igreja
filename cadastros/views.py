@@ -7,6 +7,7 @@ from django.views.generic import TemplateView, CreateView
 from django.views.generic.edit import DeleteView, UpdateView
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from braces.views import GroupRequiredMixin
 from .models import Igreja, Culto
 
 from django.urls import reverse_lazy
@@ -15,7 +16,8 @@ class HomeView(TemplateView):
 
 
 
-class IgrejaCreate(LoginRequiredMixin,CreateView):
+class IgrejaCreate(GroupRequiredMixin,LoginRequiredMixin,CreateView):
+    group_required = u"adm"
     login_url = reverse_lazy('login')
     model = Igreja
     fields = ['nome','religiao','local']
